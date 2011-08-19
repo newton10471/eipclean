@@ -13,8 +13,10 @@ require '../lib/eipclean.rb'
 require '../lib/options.rb'
 
 # do the rest
-eip = EIP.new(ARGV)
-eip.dump_options
-exit(-1)
+eip = EIPClean::EIP.new(ARGV)
+
+# uncomment the following line to help debug options parsing issues
+# eip.dump_options
+
 eip.checkip
 eip.zoo_connection.close
