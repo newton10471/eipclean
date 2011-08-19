@@ -10,7 +10,7 @@ module EIPClean
       @zoo_connection = Zookeeper.new("zookeeper-1:2181")
       @value = @options.value
       @hypers = ["hyper-1","hyper-2","hyper-3","hyper-4","hyper-5","hyper-6","hyper-7","hyper-8","hyper-9","hyper-10"]
-      @channel = @options.channel # "hsltv3pp-iaas"
+      @channel = @options.channel 
       @verbose = @options.verbose
       @dryrun = @options.dryrun
       @owner = self.getowner()
@@ -27,8 +27,8 @@ module EIPClean
     # We don't use the zookeeper gem API for this since it's not completely compatible with our version 
     # of zookeeper server (3.2.2), so instead use bash shell and zkCli.sh 
     def gethyperlist
-      # /hsltv3prod-iaas/rack1/jids 
-      # racks = zoo_connection.get_children(:path => "/hsltv3prod-iaas")
+      # /<zookeeper channel>/rack1/jids 
+      # racks = zoo_connection.get_children(:path => "/<zookeeper-channel>")
       racks = `ssh zookeeper-1 "/opt/ibm-zookeeper-3.2.2/bin/zkCli.sh ls /#{@channel}" |tail -1`
       puts "racks are #{racks}" unless @verbose == false
     end
