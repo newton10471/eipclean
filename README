@@ -1,17 +1,17 @@
-eipclean
+__eipclean__
 
-Clean spurious elastic IP entries from cloud hypervisors.
+_Clean spurious elastic IP entries from cloud hypervisors._
 
 Output of some sample runs:
 
-Non-verbose, dry run mode, on a configuration that requires no changes:
+_Non-verbose, dry run mode, on a configuration that requires no changes:_
 [root@linux bin]# ./eipclean -d  -c zoochannel1 -i 192.168.3.20
 192.168.3.20 owner: hyper-6
 Running in dry run mode.  No changes will be made to EIP config on any hypervisor.
 CORRECT CONFIG: EIP 192.168.3.20 has an owner and is configured on a single hyper.
 [root@linux bin]#
 
-No options, defaults to -h help message:
+_No options, defaults to -h help message:_
 [root@linux bin]# ./eipclean
 Usage: eipclean [options] -c zookeeper_channel -i eip ...
     -c, --channel CHANNEL            (Required) zookeeper channel
@@ -21,7 +21,7 @@ Usage: eipclean [options] -c zookeeper_channel -i eip ...
     -h, --help                       Show this message
 [root@linux bin]#
 
-Verbose, dry run mode, on a configuration that requires no changes:
+_Verbose, dry run mode, on a configuration that requires no changes:_
 [root@linux bin]# ./eipclean -d -v -c zoochannel1 -i 192.168.3.20
 192.168.3.20 owner: hyper-6
 Running in dry run mode.  No changes will be made to EIP config on any hypervisor.
